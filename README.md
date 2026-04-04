@@ -93,11 +93,13 @@ Each model is trained separately on **Femur and Tibia datasets**:
 ## 🔗 Ensemble Method
 Final prediction is computed using **AUC-weighted averaging**:
 
-```
+
 
 Final = (AUC_f * P_f + AUC_t * P_t) / (AUC_f + AUC_t)
+<img width="420" height="105" alt="image" src="https://github.com/user-attachments/assets/c9b7e534-fb30-4a48-bb44-8b48d4f3bcb8" />
 
-```
+
+
 
 ### Advantages:
 - Improves accuracy
@@ -225,6 +227,6 @@ This project demonstrates a **hybrid ensemble-based system** that improves osteo
 
 👉 Provides more accurate and clinically useful results
 
-```
+
 
  
