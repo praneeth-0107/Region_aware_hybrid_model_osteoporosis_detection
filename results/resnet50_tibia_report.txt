@@ -1,0 +1,31 @@
+============================================================
+  ARCH : RESNET50  |  SITE : TIBIA
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 79.49%
+  Balanced Accuracy   : 81.21%
+  Macro ROC-AUC       : 0.9323
+
+  Per-Class Accuracy:
+    osteoporosis      : 74.68%
+    osteopenia        : 89.47%
+    normal            : 79.49%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.83      0.75      0.79        79
+  osteopenia       0.65      0.89      0.76        38
+      normal       0.86      0.79      0.83        78
+
+    accuracy                           0.79       195
+   macro avg       0.78      0.81      0.79       195
+weighted avg       0.81      0.79      0.80       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[59 10 10]
+ [ 4 34  0]
+ [ 8  8 62]]
+============================================================

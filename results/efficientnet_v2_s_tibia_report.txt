@@ -1,0 +1,31 @@
+============================================================
+  ARCH : EFFICIENTNET_V2_S  |  SITE : TIBIA
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 82.56%
+  Balanced Accuracy   : 84.24%
+  Macro ROC-AUC       : 0.9513
+
+  Per-Class Accuracy:
+    osteoporosis      : 72.15%
+    osteopenia        : 92.11%
+    normal            : 88.46%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.90      0.72      0.80        79
+  osteopenia       0.66      0.92      0.77        38
+      normal       0.87      0.88      0.88        78
+
+    accuracy                           0.83       195
+   macro avg       0.81      0.84      0.82       195
+weighted avg       0.84      0.83      0.83       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[57 13  9]
+ [ 2 35  1]
+ [ 4  5 69]]
+============================================================

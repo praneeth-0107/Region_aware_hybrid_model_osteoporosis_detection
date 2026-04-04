@@ -1,0 +1,31 @@
+============================================================
+  ARCH : VGG16  |  SITE : FEMUR
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 57.44%
+  Balanced Accuracy   : 55.32%
+  Macro ROC-AUC       : 0.7987
+
+  Per-Class Accuracy:
+    osteoporosis      : 44.30%
+    osteopenia        : 44.74%
+    normal            : 76.92%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.48      0.44      0.46        79
+  osteopenia       0.74      0.45      0.56        38
+      normal       0.61      0.77      0.68        78
+
+    accuracy                           0.57       195
+   macro avg       0.61      0.55      0.57       195
+weighted avg       0.58      0.57      0.57       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[35  5 39]
+ [21 17  0]
+ [17  1 60]]
+============================================================

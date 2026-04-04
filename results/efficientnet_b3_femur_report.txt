@@ -1,0 +1,31 @@
+============================================================
+  ARCH : EFFICIENTNET_B3  |  SITE : FEMUR
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 82.05%
+  Balanced Accuracy   : 82.87%
+  Macro ROC-AUC       : 0.9319
+
+  Per-Class Accuracy:
+    osteoporosis      : 81.01%
+    osteopenia        : 86.84%
+    normal            : 80.77%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.85      0.81      0.83        79
+  osteopenia       0.66      0.87      0.75        38
+      normal       0.90      0.81      0.85        78
+
+    accuracy                           0.82       195
+   macro avg       0.80      0.83      0.81       195
+weighted avg       0.83      0.82      0.82       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[64  9  6]
+ [ 4 33  1]
+ [ 7  8 63]]
+============================================================

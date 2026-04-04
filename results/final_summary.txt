@@ -1,0 +1,48 @@
+========================================================================
+  FINAL SUMMARY — ALL MODELS — TEST SET RESULTS
+========================================================================
+
+  ────────────────────────────────────────────────────────────────────
+  FEMUR RESULTS (ranked by accuracy)
+  ────────────────────────────────────────────────────────────────────
+  Rank  Model                    Accuracy    Bal Acc      AUC     Time
+  ────────────────────────────────────────────────────────────────────
+  1     efficientnet_v2_s          85.64%     88.10%   0.9456    0.0m  ← BEST
+  2     densenet121                85.13%     85.87%   0.9483    0.0m
+  3     swin_t                     83.59%     85.05%   0.9418    0.0m
+  4     efficientnet_b3            82.05%     82.87%   0.9319    0.0m
+  5     resnet50                   80.00%     78.45%   0.9356    0.0m
+  6     vgg16                      57.44%     55.32%   0.7987    0.0m
+
+  ────────────────────────────────────────────────────────────────────
+  TIBIA RESULTS (ranked by accuracy)
+  ────────────────────────────────────────────────────────────────────
+  Rank  Model                    Accuracy    Bal Acc      AUC     Time
+  ────────────────────────────────────────────────────────────────────
+  1     efficientnet_v2_s          82.56%     84.24%   0.9513  346.8m  ← BEST
+  2     swin_t                     81.03%     84.30%   0.9358  415.9m
+  3     resnet50                   79.49%     81.21%   0.9323  502.1m
+  4     densenet121                77.95%     76.31%   0.9319  317.6m
+  5     efficientnet_b3            77.95%     81.29%   0.9085  261.3m
+  6     vgg16                      66.67%     66.09%   0.8587 1197.4m
+
+========================================================================
+  BEST MODEL RECOMMENDATION FOR ENSEMBLE
+========================================================================
+  Best Femur Model : EFFICIENTNET_V2_S
+    Accuracy       : 85.64%
+    Balanced Acc   : 88.10%
+    ROC-AUC        : 0.9456
+    Saved at       : models\efficientnet_v2_s_femur.pth
+
+  Best Tibia Model : EFFICIENTNET_V2_S
+    Accuracy       : 82.56%
+    Balanced Acc   : 84.24%
+    ROC-AUC        : 0.9513
+    Saved at       : models\efficientnet_v2_s_tibia.pth
+
+  Next step:
+    Use these two best models to build your ensemble.
+    Combine their softmax probabilities (weighted by AUC)
+    and evaluate on the same held-out test set.
+========================================================================

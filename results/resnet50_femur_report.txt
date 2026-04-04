@@ -1,0 +1,31 @@
+============================================================
+  ARCH : RESNET50  |  SITE : FEMUR
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 80.00%
+  Balanced Accuracy   : 78.45%
+  Macro ROC-AUC       : 0.9356
+
+  Per-Class Accuracy:
+    osteoporosis      : 84.81%
+    osteopenia        : 71.05%
+    normal            : 79.49%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.76      0.85      0.80        79
+  osteopenia       0.66      0.71      0.68        38
+      normal       0.94      0.79      0.86        78
+
+    accuracy                           0.80       195
+   macro avg       0.79      0.78      0.78       195
+weighted avg       0.81      0.80      0.80       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[67  9  3]
+ [10 27  1]
+ [11  5 62]]
+============================================================

@@ -1,0 +1,31 @@
+============================================================
+  ARCH : SWIN_T  |  SITE : FEMUR
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 83.59%
+  Balanced Accuracy   : 85.05%
+  Macro ROC-AUC       : 0.9418
+
+  Per-Class Accuracy:
+    osteoporosis      : 82.28%
+    osteopenia        : 92.11%
+    normal            : 80.77%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.86      0.82      0.84        79
+  osteopenia       0.70      0.92      0.80        38
+      normal       0.91      0.81      0.86        78
+
+    accuracy                           0.84       195
+   macro avg       0.82      0.85      0.83       195
+weighted avg       0.85      0.84      0.84       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[65  9  5]
+ [ 2 35  1]
+ [ 9  6 63]]
+============================================================

@@ -1,0 +1,50 @@
+=================================================================
+  BONE DENSITY — AUC-WEIGHTED ENSEMBLE REPORT
+  Evaluated on HELD-OUT TEST SET (10%)
+=================================================================
+
+  Femur model   : EFFICIENTNET_V2_S  (AUC weight = 0.9456  [49.8%])
+  Tibia model   : EFFICIENTNET_V2_S  (AUC weight = 0.9513  [50.2%])
+  Formula       : prob = (50% × femur_prob) + (50% × tibia_prob)
+
+  ─────────────────────────────────────────────────────
+  ENSEMBLE PERFORMANCE
+  ─────────────────────────────────────────────────────
+  Overall Accuracy    : 84.62%
+  Balanced Accuracy   : 86.82%
+  Macro ROC-AUC       : 0.9579
+
+  Per-Class Accuracy:
+    osteoporosis      : 79.75%
+    osteopenia        : 97.37%
+    normal            : 83.33%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.91      0.80      0.85        79
+  osteopenia       0.66      0.97      0.79        38
+      normal       0.93      0.83      0.88        78
+
+    accuracy                           0.85       195
+   macro avg       0.83      0.87      0.84       195
+weighted avg       0.87      0.85      0.85       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[63 11  5]
+ [ 1 37  0]
+ [ 5  8 65]]
+
+  ─────────────────────────────────────────────────────
+  COMPARISON ACROSS STRATEGIES
+  ─────────────────────────────────────────────────────
+  Strategy                 Accuracy    Bal Acc      AUC
+  ───────────────────────────────────────────────────────
+  Femur only (efficientnet_v2_s)     85.64%     88.10%   0.9456  ← BEST
+  Tibia only (efficientnet_v2_s)     82.56%     84.24%   0.9513
+  Ensemble (50 / 50)         84.62%     86.82%   0.9578
+  Ensemble (AUC-weighted) ★     84.62%     86.82%   0.9579
+
+=================================================================

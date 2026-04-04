@@ -1,0 +1,31 @@
+============================================================
+  ARCH : SWIN_T  |  SITE : TIBIA
+  Evaluated on HELD-OUT TEST SET (10%)
+============================================================
+  Overall Accuracy    : 81.03%
+  Balanced Accuracy   : 84.30%
+  Macro ROC-AUC       : 0.9358
+
+  Per-Class Accuracy:
+    osteoporosis      : 74.68%
+    osteopenia        : 100.00%
+    normal            : 78.21%
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+osteoporosis       0.86      0.75      0.80        79
+  osteopenia       0.69      1.00      0.82        38
+      normal       0.86      0.78      0.82        78
+
+    accuracy                           0.81       195
+   macro avg       0.80      0.84      0.81       195
+weighted avg       0.82      0.81      0.81       195
+
+
+  Confusion Matrix (rows=true, cols=pred):
+  Classes: osteoporosis | osteopenia | normal
+[[59 10 10]
+ [ 0 38  0]
+ [10  7 61]]
+============================================================
