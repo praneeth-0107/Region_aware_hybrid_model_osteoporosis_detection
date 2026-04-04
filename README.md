@@ -1,8 +1,3 @@
- Here’s your **complete GitHub-ready `README.md` file** (clean, formatted, copy-paste directly 👇)
-
----
-
-```markdown
 # 🦴 A Region-Aware Hybrid Framework for Osteoporosis Detection
 ### Femur & Tibia-Based Deep Learning System with Ensemble Learning
 
@@ -120,7 +115,7 @@ Final = (AUC_f * P_f + AUC_t * P_t) / (AUC_f + AUC_t)
 ---
 
 ## 🧾 Output Example
-```
+
 
 Diagnosis: Osteoporosis
 Risk Level: High
@@ -133,12 +128,12 @@ Confidence: 96.4%
 
 Final Ensemble Confidence: 96.1%
 
-```
+
 
 ---
 
 ## 📂 Project Structure
-```
+
 
 ├── models/
 │   ├── efficientnet_v2_s_femur.pth
@@ -156,7 +151,7 @@ Final Ensemble Confidence: 96.1%
 ├── ensemble_bone_density.py
 └── README.md
 
-````
+
 
 ---
 
