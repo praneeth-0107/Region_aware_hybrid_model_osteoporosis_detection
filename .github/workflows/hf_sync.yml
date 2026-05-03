@@ -20,4 +20,4 @@ jobs:
             echo "Error: HF_TOKEN secret is missing!"
             exit 1
           fi
-          git push --force https://praneeth-0107:$HF_TOKEN@huggingface.co/spaces/praneeth-0107/bone-health-ai main
+          git push --force https://praneeth-0107:$HF_TOKEN@huggingface.co/spaces/praneeth-0107/BoneHealth-AI main
