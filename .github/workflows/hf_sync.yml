@@ -16,8 +16,16 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          if [ -z "$HF_TOKEN" ]; then
+          if [ -z "${{ secrets.HF_TOKEN }}" ]; then
             echo "Error: HF_TOKEN secret is missing!"
             exit 1
           fi
-          git push --force https://praneeth-0107:$HF_TOKEN@huggingface.co/spaces/praneeth-0107/BoneHealth-AI main
+          if [ -z "${{ secrets.HF_USERNAME }}" ]; then
+            echo "Error: HF_USERNAME secret is missing!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.HF_SPACE_NAME }}" ]; then
+            echo "Error: HF_SPACE_NAME secret is missing!"
+            exit 1
+          fi
+          git push --force https://${{ secrets.HF_USERNAME }}:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/${{ secrets.HF_USERNAME }}/${{ secrets.HF_SPACE_NAME }} main
