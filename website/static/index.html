@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoneHealth AI — Intelligent Bone Density Analysis</title>
+    <meta name="description" content="AI-powered bone density analysis platform. Upload knee X-ray images for instant osteoporosis, osteopenia, and normal bone health detection using ensemble deep learning models.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- Background effects -->
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Analyzing your X-ray...</div>
+    <div class="loading-steps">
+        <div class="loading-step" id="step1">🔍 Segmenting bone regions...</div>
+        <div class="loading-step" id="step2">🧠 Running AI ensemble model...</div>
+        <div class="loading-step" id="step3">📊 Generating diagnostic report...</div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <svg viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="18" r="16" stroke="url(#g1)" stroke-width="2"/>
+                <path d="M18 8 L18 28 M12 14 L18 8 L24 14 M13 20 Q18 26 23 20" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <defs><linearGradient id="g1" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#06b6d4"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs>
+            </svg>
+            Bone<span>Health AI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#diseases">Diseases</a></li>
+            <li><a href="#diagnosis">Diagnosis</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge"><div class="pulse"></div> AI-Powered Diagnostics</div>
+            <h1>Intelligent <span class="gradient">Bone Density</span> Analysis</h1>
+            <p>Upload a knee X-ray image and receive instant AI-powered bone density analysis. Our ensemble deep learning model detects osteoporosis, osteopenia, and healthy bone conditions with high accuracy.</p>
+            <div class="hero-actions">
+                <a href="#diagnosis" class="btn btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                    Upload X-Ray
+                </a>
+                <a href="#diseases" class="btn btn-secondary">Learn About Diseases</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <div class="hero-card-dot green"></div>
+                    <div class="hero-card-dot amber"></div>
+                    <div class="hero-card-dot red"></div>
+                    <h3>Model Performance</h3>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-val">85.6%</span>
+                    <span class="hero-stat-label">Accuracy</span>
+                </div>
+                <div class="hero-bars">
+                    <div class="hero-bar-row">
+                        <span class="hero-bar-label">Femur AUC</span>
+                        <div class="hero-bar-track"><div class="hero-bar-fill" style="width:94.5%;background:linear-gradient(90deg,#06b6d4,#14b8a6)"></div></div>
+                    </div>
+                    <div class="hero-bar-row">
+                        <span class="hero-bar-label">Tibia AUC</span>
+                        <div class="hero-bar-track"><div class="hero-bar-fill" style="width:95.1%;background:linear-gradient(90deg,#14b8a6,#10b981)"></div></div>
+                    </div>
+                    <div class="hero-bar-row">
+                        <span class="hero-bar-label">Ensemble</span>
+                        <div class="hero-bar-track"><div class="hero-bar-fill" style="width:97%;background:linear-gradient(90deg,#a78bfa,#8b5cf6)"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disease Information Section -->
+<section class="section" id="diseases">
+    <div class="section-header fade-in">
+        <div class="section-label">Understanding Bone Health</div>
+        <h2>Bone Density Conditions</h2>
+        <p>Learn about the three bone density classifications our AI model detects from knee X-ray images.</p>
+    </div>
+    <div class="disease-grid">
+        <!-- Osteoporosis -->
+        <div class="disease-card danger fade-in">
+            <div class="disease-icon">🦴</div>
+            <h3>Osteoporosis</h3>
+            <span class="risk-badge">HIGH RISK</span>
+            <p>A condition where bones become weak and brittle, making them more susceptible to fractures from minor falls or everyday stresses.</p>
+            <h4>Common Causes</h4>
+            <ul>
+                <li>Age-related bone loss (post-menopausal women)</li>
+                <li>Calcium and Vitamin D deficiency</li>
+                <li>Hormonal imbalances (low estrogen/testosterone)</li>
+                <li>Sedentary lifestyle and lack of weight-bearing exercise</li>
+                <li>Prolonged corticosteroid medication use</li>
+            </ul>
+            <h4>Symptoms</h4>
+            <ul>
+                <li>Bone fractures from minor trauma</li>
+                <li>Gradual loss of height over time</li>
+                <li>Stooped or hunched posture</li>
+                <li>Back pain from vertebral compression fractures</li>
+                <li>Reduced bone density visible on X-rays</li>
+            </ul>
+        </div>
+        <!-- Osteopenia -->
+        <div class="disease-card warning fade-in">
+            <div class="disease-icon">⚡</div>
+            <h3>Osteopenia</h3>
+            <span class="risk-badge">MEDIUM RISK</span>
+            <p>A precursor to osteoporosis where bone density is lower than normal but not yet low enough to be classified as osteoporosis.</p>
+            <h4>Common Causes</h4>
+            <ul>
+                <li>Natural aging process starting after age 30</li>
+                <li>Family history of low bone density</li>
+                <li>Insufficient calcium intake in diet</li>
+                <li>Smoking and excessive alcohol consumption</li>
+                <li>Certain medications (anti-seizure, steroids)</li>
+            </ul>
+            <h4>Symptoms</h4>
+            <ul>
+                <li>Often asymptomatic (silent condition)</li>
+                <li>Mild joint stiffness or discomfort</li>
+                <li>Increased susceptibility to fractures</li>
+                <li>Subtle changes in bone texture on imaging</li>
+                <li>May progress to osteoporosis if untreated</li>
+            </ul>
+        </div>
+        <!-- Normal -->
+        <div class="disease-card healthy fade-in">
+            <div class="disease-icon">✅</div>
+            <h3>Normal Bone Density</h3>
+            <span class="risk-badge">HEALTHY</span>
+            <p>Bones with adequate mineral density and structural integrity, indicating good skeletal health and low fracture risk.</p>
+            <h4>Maintaining Bone Health</h4>
+            <ul>
+                <li>Regular weight-bearing and resistance exercises</li>
+                <li>Adequate calcium intake (1000-1200mg daily)</li>
+                <li>Sufficient Vitamin D (600-800 IU daily)</li>
+                <li>Avoiding smoking and excessive alcohol</li>
+                <li>Regular bone density screenings after age 50</li>
+            </ul>
+            <h4>Healthy Indicators</h4>
+            <ul>
+                <li>Dense, well-structured bone tissue on X-rays</li>
+                <li>Strong joint alignment and spacing</li>
+                <li>No signs of bone thinning or erosion</li>
+                <li>Healthy trabecular bone patterns</li>
+                <li>Normal cortical bone thickness</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Upload / Diagnosis Section -->
+<section class="section" id="diagnosis">
+    <div class="section-header fade-in">
+        <div class="section-label">AI Diagnosis</div>
+        <h2>Upload Your Knee X-Ray</h2>
+        <p>Upload a knee X-ray image for instant bone density analysis powered by our ensemble deep learning model.</p>
+    </div>
+    <div class="upload-container fade-in">
+        <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">🦴</div>
+            <h3>Drag & Drop Your X-Ray Image</h3>
+            <p>or click to browse files from your computer</p>
+            <button class="upload-btn" id="uploadBtn">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                Choose File
+            </button>
+            <div class="upload-formats">Supported formats: PNG, JPG, JPEG, BMP, TIFF</div>
+            <input type="file" id="fileInput" accept="image/*" style="display:none">
+        </div>
+        <div class="upload-preview" id="uploadPreview">
+            <img id="previewImg" src="" alt="Preview">
+            <div class="upload-preview-info">
+                <h4 id="previewName">filename.png</h4>
+                <p id="previewSize">0 KB</p>
+            </div>
+            <button class="remove-btn" id="removeBtn">Remove</button>
+        </div>
+        <button class="analyze-btn" id="analyzeBtn" disabled>🔬 Analyze with AI Ensemble Model</button>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section class="section" id="results-section">
+    <div class="results-container">
+        <!-- Result Hero -->
+        <div class="result-hero" id="resultHero">
+            <div class="result-badge" id="resultBadge">● DIAGNOSIS</div>
+            <div class="result-diagnosis" id="resultDiagnosis">—</div>
+            <div class="result-confidence">Ensemble Confidence: <strong id="resultConfidence">—</strong></div>
+            <div class="result-meta" id="resultMeta"></div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="download-actions">
+            <button class="btn-download" id="downloadPdfBtn" onclick="downloadPDF()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Download PDF Report
+            </button>
+        </div>
+
+        <!-- Result Grid -->
+        <div class="result-grid">
+            <!-- Femur Analysis -->
+            <div class="result-card">
+                <h3><span class="dot"></span> Femur Analysis</h3>
+                <div class="prob-bars" id="femurBars"></div>
+            </div>
+            <!-- Tibia Analysis -->
+            <div class="result-card">
+                <h3><span class="dot"></span> Tibia Analysis</h3>
+                <div class="prob-bars" id="tibiaBars"></div>
+            </div>
+            <!-- Ensemble Chart -->
+            <div class="result-card">
+                <h3><span class="dot"></span> Ensemble Probability Distribution</h3>
+                <div class="chart-container"><canvas id="ensembleChart"></canvas></div>
+            </div>
+            <!-- Comparison Chart -->
+            <div class="result-card">
+                <h3><span class="dot"></span> Femur vs Tibia vs Ensemble</h3>
+                <div class="chart-container"><canvas id="comparisonChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="result-card" style="margin-bottom:32px">
+            <h3><span class="dot"></span> Segmentation Analysis</h3>
+            <div class="images-grid" id="resultImages"></div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <div class="disclaimer-icon">⚠️</div>
+            <p><strong>Medical Disclaimer:</strong> This AI-powered tool is designed for research and educational purposes only. It is NOT a substitute for professional medical diagnosis. Always consult a qualified healthcare provider for medical advice, diagnosis, and treatment decisions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 BoneHealth AI — Region-Aware Hybrid Model for Osteoporosis Detection</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
