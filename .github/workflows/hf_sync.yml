@@ -20,12 +20,25 @@ jobs:
             echo "Error: HF_TOKEN secret is missing!"
             exit 1
           fi
-          if [ -z "${{ secrets.HF_USERNAME }}" ]; then
-            echo "Error: HF_USERNAME secret is missing!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.HF_SPACE_NAME }}" ]; then
-            echo "Error: HF_SPACE_NAME secret is missing!"
-            exit 1
-          fi
+          
+          # Remove the github history to prevent past binary files from blocking the push
+          rm -rf .git
+          
+          # Configure Git
+          git config --global user.email "bot@huggingface.co"
+          git config --global user.name "Hugging Face Sync Bot"
+          
+          # Initialize a fresh git repo
+          git init
+          git checkout -b main
+          
+          # Track large files explicitly
+          git lfs install
+          git lfs track "*.pth" "*.png" "*.pdf" "*.mp4" "*.docx"
+          
+          # Commit only the current files
+          git add .
+          git commit -m "Sync to Hugging Face Space"
+          
+          # Push forcefully to the space
           git push --force https://${{ secrets.HF_USERNAME }}:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/${{ secrets.HF_USERNAME }}/${{ secrets.HF_SPACE_NAME }} main
