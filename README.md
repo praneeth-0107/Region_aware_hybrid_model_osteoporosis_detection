@@ -1,3 +1,12 @@
+---
+title: Bone Health AI
+emoji: 🦴
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 5000
+pinned: false
+---
 # 🦴 A Region-Aware Hybrid Framework for Osteoporosis Detection
 ### Femur & Tibia-Based Deep Learning System with Ensemble Learning
 
