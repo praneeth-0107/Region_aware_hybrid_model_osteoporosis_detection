@@ -123,9 +123,11 @@ def predict():
         return jsonify({"error": f"Prediction failed: {str(e)}"}), 500
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     print("\n" + "="*60)
     print("  Bone Health AI Diagnostic Platform")
     print(f"  Device: {DEVICE}")
-    print("  Open http://localhost:5000")
+    print(f"  Open http://localhost:{port}")
     print("="*60 + "\n")
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=port, debug=False)
+
