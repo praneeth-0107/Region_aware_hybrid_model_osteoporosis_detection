@@ -207,17 +207,7 @@ python ensemble_bone_density.py
 * Clinical validation
 * Improved segmentation models
 
----
-
-## 👨‍💻 Team Members
-
-* Praneeth Potta
-* Danda Rishitha
-* Shanum Shazfa Shaik
-* Mahathi Popuri
-
----
-
+ 
 ## ⭐ Conclusion
 
 This project demonstrates a **hybrid ensemble-based system** that improves osteoporosis detection by:
