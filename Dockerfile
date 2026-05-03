@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose port
-EXPOSE $PORT
+EXPOSE 7860
 
 # Start from website directory
-CMD cd website && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --workers 1
+CMD cd website && gunicorn app:app --bind 0.0.0.0:${PORT:-7860} --timeout 120 --workers 1
